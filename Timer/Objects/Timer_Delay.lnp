@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\timer_delay.obj" 
+TO ".\Objects\Timer_Delay" 
+PRINT(".\Listings\Timer_Delay.m51") RAMSIZE(256) 

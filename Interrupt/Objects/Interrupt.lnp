@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\interrupt_led.obj" 
+TO ".\Objects\Interrupt" 
+PRINT(".\Listings\Interrupt.m51") RAMSIZE(256) 
