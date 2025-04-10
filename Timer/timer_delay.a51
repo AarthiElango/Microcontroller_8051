@@ -14,7 +14,7 @@ AGAIN1:
 ; Delay Subroutine (5ms)
 DELAY: 
     MOV TL0, #00H         ; Load Timer 0 low byte
-    MOV TH0, #000H        ; Load Timer 0 high byte for ~5ms delay
+    MOV TH0, #EEH        ; Load Timer 0 high byte for ~5ms delay
     SETB TR0              ; Start Timer 0
     AGAIN: 
     JNB TF0, AGAIN        ; Wait until Timer 0 overflows (TF0 = 1)
