@@ -1,0 +1,59 @@
+A51 MACRO ASSEMBLER  UP_COUNTER                                                           04/17/2025 14:29:38 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\up_counter.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE up_counter.a51 SET(SMALL) DEBUG PRINT(.\Listings\up_counter.lst) OBJECT
+                      (.\Objects\up_counter.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H;
+                       2             
+0000 758901            3     MOV TMOD,#01H;
+0003 7900              4     MOV R1,#00H;
+0005 09                5     LOOP: INC R1;
+                       6           
+0006 89A0              7           MOV P2,R1;
+0008 110F              8               ACALL DELAY;
+000A B963F8            9               CJNE R1,#63H,LOOP;
+000D 8014             10               SJMP EXIT;
+000F                  11     DELAY: 
+000F 7A0A             12               MOV R2,#0AH;
+0011                  13               LOOP2:
+0011 758C00           14                       MOV TH0,#00H;
+0014 758A00           15                       MOV TL0,#00H;
+0017 D28C             16                       SETB TR0;
+0019 308DFD           17                               LOOP1:JNB TF0,LOOP1;
+001C C28C             18                               CLR TR0;
+001E C28D             19                               CLR TF0;
+0020 DAEF             20                               DJNZ R2,LOOP2;
+0022 22               21                       RET
+0023                  22                               EXIT:   
+                      23     END
+                                     
+A51 MACRO ASSEMBLER  UP_COUNTER                                                           04/17/2025 14:29:38 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   000FH   A   
+EXIT . . . . . . .  C ADDR   0023H   A   
+LOOP . . . . . . .  C ADDR   0005H   A   
+LOOP1. . . . . . .  C ADDR   0019H   A   
+LOOP2. . . . . . .  C ADDR   0011H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

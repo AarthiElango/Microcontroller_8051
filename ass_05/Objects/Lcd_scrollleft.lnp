@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\lcd.obj" 
+TO ".\Objects\Lcd_scrollleft" 
+PRINT(".\Listings\Lcd_scrollleft.m51") RAMSIZE(256) 

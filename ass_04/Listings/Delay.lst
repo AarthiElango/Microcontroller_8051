@@ -1,0 +1,63 @@
+A51 MACRO ASSEMBLER  DELAY                                                                04/17/2025 14:39:01 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\Delay.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Delay.a51 SET(SMALL) DEBUG PRINT(.\Listings\Delay.lst) OBJECT(.\Objects
+                      \Delay.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H;
+                       2             
+0000                   3             MAIN:
+0000 758901            4               MOV TMOD,#01H;
+                       5               
+                       6                
+0003 7590FF            7                AGAIN: MOV P1,#0FFH;
+0006 790E              8                       MOV R1,#0EH;
+0008 1113              9                       ACALL DELAY;
+000A 759000           10                               MOV P1,#00H;
+000D 790E             11                               MOV R1,#0EH;
+000F 1113             12                       ACALL DELAY;
+0011 80F0             13                               SJMP AGAIN;
+                      14                               
+                      15                       
+                      16               
+0013                  17               DELAY: 
+                      18                   
+0013 758C00           19                       MOV TH0,#00H;
+0016 758A00           20                       MOV TL0,#00H;
+0019 D28C             21                       SETB TR0;
+001B 308DFD           22                               LOOP: JNB TF0,LOOP;
+001E C28C             23                               CLR TR0;
+0020 C28D             24                               CLR TF0;
+0022 D9EF             25                               DJNZ R1,DELAY;
+0024 22               26                      RET
+                      27                               
+                      28     END                     
+                                     
+A51 MACRO ASSEMBLER  DELAY                                                                04/17/2025 14:39:01 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0003H   A   
+DELAY. . . . . . .  C ADDR   0013H   A   
+LOOP . . . . . . .  C ADDR   001BH   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
